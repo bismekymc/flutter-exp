@@ -1,132 +1,134 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-void main(){
+
+void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return MaterialApp(
+      title: 'Flutter 🤦‍',
+      theme: ThemeData(
+       
+        primarySwatch: Colors.orange,
+      ),
+      home: const MyHomePage(title: 'İlginç Bilgiler'),
       debugShowCheckedModeBanner: false,
-    title: 'Flutter 🤦‍',
-    home:HomePage(),
     );
   }
 }
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+ 
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  get style => null;
+
 
 
   @override
   Widget build(BuildContext context) {
-    String lorem =
+    var ekran = MediaQuery.of(context);
+    final double height = ekran.size.height;
+    final double width= ekran.size.width;
+    String lorem ='Zürafaların boyunlarının uzun olduğunu biliriz ancak zürafalar ile ilgili ilginç olan kısım boyunlarının uzunluğu değil, boyun omurlarının sayısıdır. Zürafalar da aynı insanlar gibi sadece 7 adet boyun omuruna sahiptir. Boyun omurları özelleşerek, kemik yapıları uzayarak uzun boyunlarını destekleyecek şekilde evrimleşmişlerdir. ';
 
 
 
-        'By becoming a TED Member, you’ll be on the frontier of a brighter future, helping us build a community united by the power of knowledge. '
-        'Together, we’ll share new perspectives, discover innovative ways of thinking and maybe even change the world. '
-        'As a non-profit, we also rely on support from our audience to further our mission of making knowledge accessible to everyone.';
+
+
     return Scaffold(
-      //appbar
       appBar: AppBar(
 
 
-        title:Row(
-          children: [
-            Image.network('https://yt3.ggpht.com/ytc/AKedOLQGnY6McntoY-eWaRDI047FWFqj7pVlw2nBfkwz7w=s68-c-k-c0x00ffffff-no-rj'),
-
-            const Text(' İdeas Worth Spreading'),],
-
-
-
-        )
-           , backgroundColor: Colors.red,
-
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
 
       ),
-      //alt butonlar
-
-      drawer: Drawer(
-        elevation: 0,
-
-        child:ListView(
-          padding: EdgeInsets.zero,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.white54
-              ),
-
-
-              child: Text('WATCH'),
-
-              padding: EdgeInsets.symmetric(),
-
-            )
-          ],
-        )
-
-
-
-
-
-
-    ),/*
-      bottomNavigationBar: BottomNavigationBar(
-        items: [],
-      ),*/
-      //body(arka kısım) hep en altta olmalı
-      body:Center(
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.start,
-          children:<Widget>[
+          children: <Widget>[
+            Container(
+              child:
+              new Image.network("https://media2.giphy.com/media/H6VPKP45Nh8cYSv1Qe/200w.webp?cid=ecf05e47xz324spcskdete0byldw7lfi45ulru1u16ccjfgm&rid=200w.webp&ct=g"),
+
+              width: 500,
+              height: 500,
+              padding: const EdgeInsets.symmetric(horizontal:20 ,vertical: 20),
+
+            ),
+            Container(
+              width: 500,
 
 
-            const LinearProgressIndicator(
+              child: RichText(
+                maxLines: 5,
 
-              minHeight: (0.9),
+                text: TextSpan(text: lorem, style:TextStyle(
+                      color: Colors.black54,
+                  fontSize:height/40,
+
+
+                  
+
+
+
+
+
+
+                ),
+                ),
+              ) ,
 
 
             ),
-            const Padding(
-              padding: EdgeInsets.all(18),
-              
+            ElevatedButton(
+
+              style:ElevatedButton.styleFrom(
 
 
-            ),
-            Text(lorem,
-            maxLines: 50,
+
+                primary: Colors.orangeAccent,
+                onPrimary: Colors.black,
+
+
+
+              ),
+              onPressed: (){},
+              child: const Text('OK'),
+
             )
-            ,
-          ]
+
+
+
+
+
+
+
+
+
+          ],
         ),
-
       ),
-        floatingActionButton:FloatingActionButton(
-          backgroundColor: Colors.white24 ,
-          highlightElevation: (0.5),
-
-          onPressed:(){
-
-        },
-
-        )
-
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
+
   }
 }
-
-/*actions: [
-          Icon(Icons.call),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Icon(Icons.search),
-          ),
-          Icon(Icons.favorite_border),
-        ],*/
