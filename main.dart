@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter 🤦‍',
       theme: ThemeData(
-       
+      
         primarySwatch: Colors.orange,
       ),
       home: const MyHomePage(title: 'İlginç Bilgiler'),
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
- 
+  
 
   final String title;
 
@@ -86,11 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize:height/40,
 
 
-                  
-
-
-
-
 
 
                 ),
@@ -103,12 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
               style:ElevatedButton.styleFrom(
 
-
-
                 primary: Colors.orangeAccent,
                 onPrimary: Colors.black,
-
-
 
               ),
               onPressed: (){},
