@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
             var args;
             return PassArgumentsScreen(
               message: 'görseller',
-              title: 'hbhjb',
+              title: '  ',
 
 
 
@@ -35,10 +35,10 @@ class MyApp extends StatelessWidget {
 
         );
 
-    },
+      },
 
 
-      title: 'Flutter 🤦‍',
+      title: 'Flutter',
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
@@ -59,10 +59,19 @@ class ExtractArgumentsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, routeName);
+          },
+              icon: Icon(Icons.help))
+        ],
         title: Text(args.title),
       ),
       body: Center(
+
         child: Text(args.message),
+
+
       ),
     );
   }
@@ -71,7 +80,7 @@ class PassArgumentsScreen extends StatelessWidget {
   static const routeName = '/passArguments';
 
 
-   const PassArgumentsScreen({Key? key, required String message, required String title}) : super(key: key);
+  const PassArgumentsScreen({Key? key, required String message, required String title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -147,8 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               onPressed: () {
 
-                Navigator.pushNamed(
-                  context,
+                Navigator.pushNamed(context,
                   ExtractArgumentsScreen.routeName,
                   arguments: ScreenArguments(
                     'Daha Fazla Bilgi',
@@ -156,31 +164,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         "kazandıktan sonra Afrika'ya geçmiş olmaları da bir başka ilginçlik.",
 
 
-                ),
+                  ),
                 );
               },
               child: const Text('Daha Fazlası'),
             ),
 
 
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  PassArgumentsScreen.routeName,
-                  arguments: ScreenArguments(
-                    'Daha Fazla Resim',
-                    'örnek',
-
-
-                  ),
-                );
-
-              },
-
-              child: const Text('Görseller'),
-
-            ),
           ],
         ),
       ),
